@@ -1,0 +1,249 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap');
+
+:root {
+    --background: #eeeae3;
+    --surface: #f8f6f1;
+    --surface-strong: #ffffff;
+    --ink: #292927;
+    --muted: #77736b;
+    --line: #ddd7cc;
+    --accent: #777a68;
+    --accent-dark: #555847;
+    --danger: #8c6257;
+    --danger-dark: #704a41;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+ñ    margin: 0;
+    min-height: 100vh;
+    color: var(--ink);
+    background:
+        radial-gradient(circle at top left, rgba(255, 255, 255, 0.85), transparent 28rem),
+        var(--background);
+    font-family: "DM Sans", Arial, sans-serif;
+}
+
+.page-shell {
+    width: min(1120px, calc(100% - 40px));
+    margin: 0 auto;
+    padding: 56px 0 72px;
+}
+
+.page-header {
+    max-width: 680px;
+    margin-bottom: 34px;
+}
+
+.eyebrow {
+    margin: 0 0 8px;
+    color: var(--accent-dark);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+}
+
+.page-header h1 {
+    margin: 0;
+    font-family: "DM Serif Display", Georgia, serif;
+    font-size: clamp(2.7rem, 7vw, 5.2rem);
+    font-weight: 400;
+    line-height: 0.98;
+    letter-spacing: -0.035em;
+}
+
+.page-header > p:last-child {
+    max-width: 560px;
+    margin: 18px 0 0;
+    color: var(--muted);
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+.exercise-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.exercise-card {
+    position: relative;
+    min-height: 250px;
+    padding: 28px;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    background: rgba(248, 246, 241, 0.9);
+    box-shadow: 0 14px 40px rgba(67, 63, 54, 0.06);
+}
+
+.exercise-card--wide {
+    grid-column: 1 / -1;
+    min-height: 220px;
+}
+
+.exercise-card--danger {
+    background: #f3efea;
+}
+
+.exercise-number {
+    position: absolute;
+    top: 24px;
+    right: 26px;
+    color: #aaa49a;
+    font-family: "DM Serif Display", Georgia, serif;
+    font-size: 1.15rem;
+}
+
+.exercise-card h2 {
+    margin: 0 44px 22px 0;
+    font-family: "DM Serif Display", Georgia, serif;
+    font-size: 1.55rem;
+    font-weight: 400;
+}
+
+.exercise-card > p:not(.result) {
+    max-width: 360px;
+    margin: -8px 0 20px;
+    color: var(--muted);
+    line-height: 1.6;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.pet-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr 0.7fr auto;
+    align-items: end;
+    gap: 12px;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+label {
+    color: var(--muted);
+    font-size: 0.82rem;
+    font-weight: 700;
+}
+
+input {
+    width: min(100%, 360px);
+    height: 46px;
+    padding: 0 14px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    outline: none;
+    background: var(--surface-strong);
+    color: var(--ink);
+    font: inherit;
+    transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.pet-form input {
+    width: 100%;
+}
+
+input::placeholder {
+    color: #aaa59d;
+}
+
+input:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(119, 122, 104, 0.12);
+}
+
+button {
+    min-height: 46px;
+    margin-top: 4px;
+    padding: 0 18px;
+    border: 0;
+    border-radius: 10px;
+    background: var(--accent);
+    color: #ffffff;
+    cursor: pointer;
+    font: inherit;
+    font-weight: 700;
+    transition: transform 160ms ease, background 160ms ease, box-shadow 160ms ease;
+}
+
+button:hover {
+    background: var(--accent-dark);
+    box-shadow: 0 8px 20px rgba(85, 88, 71, 0.16);
+    transform: translateY(-1px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+.danger-button {
+    background: var(--danger);
+}
+
+.danger-button:hover {
+    background: var(--danger-dark);
+}
+
+.result {
+    min-height: 24px;
+    margin: 16px 0 0;
+    color: var(--accent-dark);
+    font-size: 0.92rem;
+    font-weight: 600;
+}
+
+.name-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 0;
+    list-style: none;
+}
+
+.name-list li {
+    padding: 7px 11px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: var(--surface-strong);
+    color: var(--ink);
+}
+
+@media (max-width: 760px) {
+    .page-shell {
+        width: min(100% - 28px, 1120px);
+        padding-top: 38px;
+    }
+
+    .exercise-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .exercise-card--wide {
+        grid-column: auto;
+    }
+
+    .pet-form {
+        grid-template-columns: 1fr;
+    }
+
+    .pet-form input,
+    input {
+        width: 100%;
+    }
+
+    .page-header h1 {
+        font-size: clamp(2.55rem, 15vw, 4rem);
+    }
+}
